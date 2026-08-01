@@ -1,0 +1,67 @@
+{
+  "expo": {
+    "name": "konutHub",
+    "slug": "codetalks",
+    "version": "1.0.0",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "newArchEnabled": false,
+    "orientation": "portrait",
+    "icon": "./assets/images/logo.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images/logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.sahinmaral.konuthub",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "remote-notification"
+        ]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/logo.png",
+        "backgroundColor": "#ffffff"
+      },
+      "softwareKeyboardLayoutMode": "resize",
+      "package": "com.sahinmaral.konuthub",
+      "googleServicesFile": "./google-services.json",
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "plugins": [
+      "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "konutHub profil fotoğrafınızı güncellemek için galerinize erişmek istiyor."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/logo.png",
+          "color": "#ffffff"
+        }
+      ],
+      "expo-localization",
+      "@sentry/react-native"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "51bb3a20-2564-4f2c-ab8c-13d851c690b1"
+      }
+    },
+    "owner": "sahinmaral"
+  }
+}
