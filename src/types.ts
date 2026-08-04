@@ -69,19 +69,19 @@ export interface PaginatedResult<T> {
 //   Profile: undefined;
 // };
 
-// export type RootStackParamList = {
-//   Login: undefined;
-//   SignUp: undefined;
-//   ContinueSignUp: { email: string; password: string; username: string };
-//   ActiveChannelList: undefined;
-//   AllChannelList: undefined;
-//   ChannelMessagesList: undefined;
-//   ChannelDetail: undefined;
-//   ChannelMembersList: undefined;
-//   ChannelPendingJoinRequestsList: undefined;
-//   ChannelBannedMembersList: undefined;
-//   RemoveMemberFromChannel: undefined;
-// };
+export type RootStackParamList = {
+  Login: undefined;
+  SignUp: undefined;
+  ContinueSignUp: { email: string; password: string; username: string };
+  ActiveChannelList: undefined;
+  AllChannelList: undefined;
+  ChannelMessagesList: undefined;
+  ChannelDetail: undefined;
+  ChannelMembersList: undefined;
+  ChannelPendingJoinRequestsList: undefined;
+  ChannelBannedMembersList: undefined;
+  RemoveMemberFromChannel: undefined;
+};
 
 // export type ProfileStackParamList = {
 //   MyProfile: undefined;

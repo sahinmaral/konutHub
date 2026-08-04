@@ -1,7 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
+import activeChannelReducer from './reducers/activeChannelReducer';
 import appReducer from './reducers/appReducer';
+import themeReducer from './reducers/themeReducer';
 
 const persistConfig = {
   key: 'root',
@@ -11,7 +13,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   app: appReducer,
-  //theme: themeReducer,
+  theme: themeReducer,
+  activeChannel: activeChannelReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

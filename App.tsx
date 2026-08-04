@@ -1,32 +1,18 @@
 // import { BubbleContentMenuProvider } from '@/components/BubbleContentMenu';
 // import { ConfirmationDialogProvider } from '@/components/ConfirmationDialog';
 // import CustomBottomTab from '@/components/CustomBottomTab';
-import { useNotificationHandler } from '@/hooks/useNotificationHandler';
-import { useNotificationHub } from '@/hooks/useNotificationHub';
-import { usePushNotifications } from '@/hooks/usePushNotifications';
-import {
-    Montserrat_100Thin,
-    Montserrat_200ExtraLight,
-    Montserrat_300Light,
-    Montserrat_400Regular,
-    Montserrat_500Medium,
-    Montserrat_600SemiBold,
-    Montserrat_700Bold,
-    Montserrat_800ExtraBold,
-    Montserrat_900Black,
-    useFonts,
-} from '@expo-google-fonts/montserrat';
-import {
-    DarkTheme,
-    DefaultTheme,
-    Theme as NavigationTheme
-} from '@react-navigation/native';
+import Login from '@/screens/Login/Login';
+import { IBMPlexMono_400Regular, IBMPlexMono_500Medium } from '@expo-google-fonts/ibm-plex-mono';
+import { Inter_400Regular, Inter_700Bold } from '@expo-google-fonts/inter';
+import { SpaceGrotesk_500Medium, SpaceGrotesk_600SemiBold } from '@expo-google-fonts/space-grotesk';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { DarkTheme, DefaultTheme, Theme as NavigationTheme } from '@react-navigation/native';
+import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import useCheckInternet from './src/hooks/useCheckInternet';
-import useLanguage from './src/hooks/useLanguage';
 import useTheme from './src/hooks/useTheme';
 import { useAppDispatch, useAppSelector } from './src/redux/hooks';
 // import CheckInternet from './src/screens/CheckInternet';
@@ -95,24 +81,30 @@ function App() {
   const user = useAppSelector(state => state.app.user);
   const dispatch = useAppDispatch();
 
-  usePushNotifications(user?.id);
-  useNotificationHub(user !== null);
-  useNotificationHandler();
-
   const { isConnected } = useCheckInternet();
   const theme = useTheme();
-  useLanguage();
+
   const [fontsLoaded] = useFonts({
-    Montserrat_100: Montserrat_100Thin,
-    Montserrat_200: Montserrat_200ExtraLight,
-    Montserrat_300: Montserrat_300Light,
-    Montserrat_400: Montserrat_400Regular,
-    Montserrat_500: Montserrat_500Medium,
-    Montserrat_600: Montserrat_600SemiBold,
-    Montserrat_700: Montserrat_700Bold,
-    Montserrat_800: Montserrat_800ExtraBold,
-    Montserrat_900: Montserrat_900Black,
+    SpaceGrotesk_500Medium,
+    SpaceGrotesk_600SemiBold,
+    Inter_400Regular,
+    Inter_700Bold,
+    IBMPlexMono_400Regular,
+    IBMPlexMono_500Medium,
   });
+
+  useEffect(() => {
+    const webClientId = process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID;
+
+    // Without the web client id google-signin fails at sign-in time with an opaque
+    // native error, so skip configuring and surface the missing value instead.
+    if (!webClientId) {
+      console.warn('EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID is not set; Google sign-in is disabled.');
+      return;
+    }
+
+    GoogleSignin.configure({ webClientId });
+  }, []);
 
   useEffect(() => {
     if (fontsLoaded) {
@@ -137,6 +129,7 @@ function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <StatusBar style={theme.mode === 'dark' ? 'light' : 'dark'} />
+      <Login />
       {/* <ConfirmationDialogProvider>
         <NavigationContainer ref={navigationRef} theme={navigationTheme}>
           <BubbleContentMenuProvider>

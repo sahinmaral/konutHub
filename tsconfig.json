@@ -3,11 +3,12 @@
   "compilerOptions": {
     "strict": true,
     "moduleResolution": "bundler",
+    "types": ["jest", "node"],
     "paths": {
       "@/assets/*": ["./assets/*"],
       "@/*": ["./src/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }

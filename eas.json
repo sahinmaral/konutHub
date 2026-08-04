@@ -9,21 +9,27 @@
       "distribution": "internal",
       "env": {
         "EXPO_PUBLIC_API_BASE_URL": "TODO_SET_DEVELOPMENT_API_URL",
-        "EXPO_PUBLIC_SENTRY_DSN": "TODO_SET_SENTRY_DSN"
+        "EXPO_PUBLIC_SENTRY_DSN": "TODO_SET_SENTRY_DSN",
+        "FACEBOOK_APP_ID": "TODO_SET_FACEBOOK_APP_ID",
+        "FACEBOOK_CLIENT_TOKEN": "TODO_SET_FACEBOOK_CLIENT_TOKEN"
       }
     },
     "preview": {
       "distribution": "internal",
       "env": {
         "EXPO_PUBLIC_API_BASE_URL": "TODO_SET_PREVIEW_API_URL",
-        "EXPO_PUBLIC_SENTRY_DSN": "TODO_SET_SENTRY_DSN"
+        "EXPO_PUBLIC_SENTRY_DSN": "TODO_SET_SENTRY_DSN",
+        "FACEBOOK_APP_ID": "TODO_SET_FACEBOOK_APP_ID",
+        "FACEBOOK_CLIENT_TOKEN": "TODO_SET_FACEBOOK_CLIENT_TOKEN"
       }
     },
     "production": {
       "autoIncrement": true,
       "env": {
         "EXPO_PUBLIC_API_BASE_URL": "TODO_SET_PRODUCTION_API_URL",
-        "EXPO_PUBLIC_SENTRY_DSN": "TODO_SET_SENTRY_DSN"
+        "EXPO_PUBLIC_SENTRY_DSN": "TODO_SET_SENTRY_DSN",
+        "FACEBOOK_APP_ID": "TODO_SET_FACEBOOK_APP_ID",
+        "FACEBOOK_CLIENT_TOKEN": "TODO_SET_FACEBOOK_CLIENT_TOKEN"
       }
     }
   },

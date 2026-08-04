@@ -6,7 +6,7 @@
     "runtimeVersion": {
       "policy": "appVersion"
     },
-    "newArchEnabled": false,
+    "newArchEnabled": true,
     "orientation": "portrait",
     "icon": "./assets/images/logo.png",
     "userInterfaceStyle": "automatic",
@@ -41,6 +41,7 @@
     ],
     "plugins": [
       "expo-font",
+      "expo-asset",
       [
         "expo-image-picker",
         {
@@ -54,8 +55,16 @@
           "color": "#ffffff"
         }
       ],
-      "expo-localization",
-      "@sentry/react-native"
+      "@sentry/react-native",
+      "@react-native-firebase/app",
+      "@react-native-google-signin/google-signin",
+      [
+        "react-native-fbsdk-next",
+        {
+          "displayName": "KonutHub"
+        }
+      ],
+      "@react-native-firebase/auth"
     ],
     "extra": {
       "eas": {

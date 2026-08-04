@@ -1,12 +1,10 @@
-import '@/localization/i18n';
 import appReducer from '@/redux/reducers/appReducer';
-import languageReducer from '@/redux/reducers/languageReducer';
 import themeReducer from '@/redux/reducers/themeReducer';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { render, RenderOptions } from '@testing-library/react-native';
 import React, { ReactElement } from 'react';
-import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Provider } from 'react-redux';
 
 const testSafeAreaMetrics = {
   frame: { x: 0, y: 0, width: 375, height: 812 },
@@ -15,8 +13,7 @@ const testSafeAreaMetrics = {
 
 const rootReducer = combineReducers({
   app: appReducer,
-  theme: themeReducer,
-  language: languageReducer,
+  theme: themeReducer
 });
 
 type RootState = ReturnType<typeof rootReducer>;
