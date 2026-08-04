@@ -96,8 +96,8 @@ function App() {
   useEffect(() => {
     const webClientId = process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID;
 
-    // Without the web client id google-signin fails at sign-in time with an opaque
-    // native error, so skip configuring and surface the missing value instead.
+    console.log('EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID:', webClientId);
+
     if (!webClientId) {
       console.warn('EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID is not set; Google sign-in is disabled.');
       return;

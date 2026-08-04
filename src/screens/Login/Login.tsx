@@ -48,12 +48,16 @@ function Login() {
   };
 
   const handleGoogleLogin = async () => {
-    const hasPlayServices = await GoogleSignin.hasPlayServices();
-    console.log('Google Play Services available:', hasPlayServices);
+    try {
+      const hasPlayServices = await GoogleSignin.hasPlayServices();
+      console.log('Google Play Services available:', hasPlayServices);
 
-    const response = await GoogleSignin.signIn();
+      const response = await GoogleSignin.signIn();
 
-    console.log('Google Sign-In response:', JSON.stringify(response, null, 2));
+      console.log('Google Sign-In response:', JSON.stringify(response, null, 2));
+    } catch (error) {
+      console.error('Google Sign-In error:', error);
+    }
 
     // if (response.data?.idToken) {
     //   await fetch(

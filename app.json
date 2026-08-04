@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "konutHub",
-    "slug": "codetalks",
+    "slug": "konuthub",
     "version": "1.0.0",
     "runtimeVersion": {
       "policy": "appVersion"
@@ -68,7 +68,7 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "51bb3a20-2564-4f2c-ab8c-13d851c690b1"
+        "projectId": "78b7f5a0-e965-4a6e-8b74-e728a189c499"
       }
     },
     "owner": "sahinmaral"
